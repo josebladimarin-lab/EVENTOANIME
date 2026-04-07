@@ -1,0 +1,1022 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Weekend Chuquiago 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ===== RESET Y BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #120228;
+      color: #f0eaff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+    }
+
+    a { text-decoration: none; color: #f0eaff; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== ANIMACIONES KEYFRAMES ===== */
+    @keyframes latido {
+      0%   { transform: scale(1); }
+      30%  { transform: scale(1.12); }
+      60%  { transform: scale(0.96); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes brillar {
+      0%   { box-shadow: 0 0 0px #e91e8c; }
+      50%  { box-shadow: 0 0 28px #e91e8c, 0 0 60px rgba(233,30,140,0.4); }
+      100% { box-shadow: 0 0 0px #e91e8c; }
+    }
+
+    @keyframes girar {
+      0%   { transform: rotate(0deg) scale(1); }
+      25%  { transform: rotate(-8deg) scale(1.1); }
+      75%  { transform: rotate(8deg) scale(1.1); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
+    @keyframes saltar {
+      0%,100% { transform: translateY(0); }
+      40%      { transform: translateY(-18px); }
+      70%      { transform: translateY(-8px); }
+    }
+
+    @keyframes pulsar-btn {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes entrada-modal {
+      from { opacity: 0; transform: scale(0.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .animado-latido  { animation: latido  0.5s ease; }
+    .animado-brillar { animation: brillar 0.7s ease; }
+    .animado-girar   { animation: girar   0.5s ease; }
+    .animado-saltar  { animation: saltar  0.6s ease; }
+
+    /* ===== MUSIC PLAYER ===== */
+    .music-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background-color: rgba(26,5,51,0.97);
+      border-top: 2px solid #e91e8c;
+      padding: 10px 30px;
+      z-index: 200;
+      text-align: center;
+    }
+
+    .music-bar audio {
+      width: 340px;
+      vertical-align: middle;
+      accent-color: #e91e8c;
+    }
+
+    .music-label {
+      display: inline-block;
+      font-size: 13px; font-weight: 700;
+      color: #e91e8c; margin-right: 14px;
+      letter-spacing: 1px; vertical-align: middle;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background-color: #1a0533;
+      border-bottom: 2px solid #e91e8c;
+      padding: 14px 40px;
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    header h1 {
+      font-family: 'Bangers', cursive;
+      font-size: 28px; letter-spacing: 3px;
+      color: #ffd600; display: inline;
+    }
+
+    header h1 span { color: #e91e8c; }
+
+    nav { display: inline; margin-left: 30px; }
+
+    nav a {
+      margin-right: 20px; font-weight: 700;
+      font-size: 14px; letter-spacing: 1px; color: #f0eaff;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #ff6ec7; }
+
+    /* ===== HERO ===== */
+    #inicio {
+      background-color: #1a0533;
+      background-image:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(233,30,140,0.4), transparent),
+        radial-gradient(ellipse 40% 40% at 90% 90%, rgba(0,229,255,0.2), transparent);
+      text-align: center;
+      padding: 80px 40px 70px 40px;
+      border-bottom: 1px solid #e91e8c;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-img-fondo {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+    }
+
+    .hero-img-fondo img {
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.18;
+    }
+
+    .hero-contenido { position: relative; z-index: 1; }
+
+    .badge {
+      display: inline-block;
+      background-color: rgba(233,30,140,0.2);
+      border: 1px solid #e91e8c; color: #ff6ec7;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 50px; margin-bottom: 20px;
+    }
+
+    #inicio h2 {
+      font-family: 'Bangers', cursive;
+      font-size: 90px; line-height: 0.9;
+      letter-spacing: 4px; color: #f0eaff; margin-bottom: 10px;
+    }
+
+    #inicio h2 .amarillo { color: #ffd600; display: block; }
+    #inicio h2 .subtitulo { font-size: 40px; color: #e91e8c; letter-spacing: 6px; display: block; }
+
+    .hero-datos { margin: 30px 0; font-size: 15px; font-weight: 700; }
+
+    .hero-datos span {
+      display: inline-block;
+      background-color: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 8px 18px; border-radius: 50px; margin: 5px 8px;
+    }
+
+    .btn-principal {
+      display: inline-block; background-color: #e91e8c;
+      color: #ffffff; font-family: 'Nunito', sans-serif;
+      font-weight: 900; font-size: 17px;
+      padding: 14px 36px; border-radius: 50px; border: none;
+      margin: 6px; cursor: pointer;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+
+    .btn-principal:hover {
+      background-color: #c0156f;
+      animation: pulsar-btn 0.4s ease;
+    }
+
+    .btn-secundario {
+      display: inline-block; background-color: transparent;
+      color: #00e5ff; font-family: 'Nunito', sans-serif;
+      font-weight: 900; font-size: 17px;
+      padding: 12px 34px; border-radius: 50px; border: 2px solid #00e5ff;
+      margin: 6px; cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .btn-secundario:hover { background-color: #00e5ff; color: #120228; }
+
+    /* ===== DIVISOR ===== */
+    .divisor { height: 2px; background-color: #e91e8c; border: none; opacity: 0.3; }
+
+    /* ===== SECCIONES ===== */
+    section { padding: 70px 60px; }
+
+    .etiqueta-seccion {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: #e91e8c; margin-bottom: 8px;
+    }
+
+    .titulo-seccion {
+      font-family: 'Bangers', cursive;
+      font-size: 52px; letter-spacing: 2px;
+      color: #f0eaff; margin-bottom: 12px;
+    }
+
+    .titulo-seccion span { color: #ffd600; }
+
+    .subtexto {
+      color: rgba(240,234,255,0.65);
+      font-size: 15px; line-height: 1.8;
+      max-width: 600px; margin-bottom: 40px;
+    }
+
+    /* ===== SOBRE EL EVENTO ===== */
+    #sobre { background-color: rgba(255,255,255,0.02); }
+
+    .sobre-izquierda { display: inline-block; width: 42%; vertical-align: middle; }
+    .sobre-derecha   { display: inline-block; width: 52%; vertical-align: middle; padding-left: 40px; }
+
+    .sobre-imagen {
+      width: 100%;
+      border: 1px solid rgba(233,30,140,0.3);
+      border-radius: 18px; overflow: hidden;
+      background-color: rgba(26,5,51,0.6);
+      min-height: 280px;
+    }
+    .sobre-imagen img { width: 100%; height: 280px; object-fit: cover; 
+      transition: transform 0.3s ease; cursor: pointer; }
+
+    .placeholder-img {
+      text-align: center; padding: 60px 20px;
+      font-size: 80px; color: rgba(255,255,255,0.3);
+    }
+    .sobre-derecha p {
+      color: rgba(240,234,255,0.75);
+      line-height: 1.8; margin-bottom: 14px; font-size: 15px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: rgba(255,214,0,0.12);
+      border: 1px solid rgba(255,214,0,0.3); color: #ffd600;
+      font-size: 13px; font-weight: 700;
+      padding: 4px 14px; border-radius: 50px; margin: 4px 3px;
+    }
+
+    /* ===== GALERÍA ===== */
+    #galeria { background-color: #1a0533; }
+
+    .galeria-item {
+      display: inline-block; width: 30%; margin: 1%;
+      border-radius: 14px; border: 1px solid rgba(233,30,140,0.3);
+      overflow: hidden; vertical-align: top;
+      transition: transform 0.25s, border-color 0.25s; cursor: pointer;
+    }
+
+    .galeria-item:hover { transform: translateY(-6px); border-color: #e91e8c; }
+
+    /* IMÁGENES GALERÍA: reemplaza cada .placeholder con:
+       <img src="foto.jpg" alt="texto">  600x400px recomendado */
+    .galeria-item img { width: 100%; height: 200px; object-fit: cover; }
+
+    .placeholder {
+      text-align: center; padding: 50px 10px;
+      font-size: 50px; min-height: 200px;
+    }
+
+    .placeholder p {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 8px;
+    }
+
+    .g1 { background-image: linear-gradient(135deg, #2d0547, #6b0fa0); }
+    .g2 { background-image: linear-gradient(135deg, #1a2060, #0d6bce); }
+    .g3 { background-image: linear-gradient(135deg, #330930, #cc0f6a); }
+    .g4 { background-image: linear-gradient(135deg, #1a3a1a, #0d8a4e); }
+    .g5 { background-image: linear-gradient(135deg, #3d2000, #c47a00); }
+    .g6 { background-image: linear-gradient(135deg, #0a2040, #0a5080); }
+
+    /* ===== ACTIVIDADES ===== */
+    #actividades { background-color: #120228; }
+
+    .act-tabla { width: 100%; border-collapse: separate; border-spacing: 10px; }
+
+    .act-tabla td {
+      width: 25%;
+      background-color: rgba(255,255,255,0.04);
+      border: 1px solid rgba(233,30,140,0.25);
+      border-radius: 14px; padding: 22px 18px;
+      vertical-align: top; cursor: pointer;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .act-tabla td:hover {
+      border-color: #e91e8c;
+      background-color: rgba(233,30,140,0.1);
+    }
+
+    /* IMAGEN ACTIVIDAD: agrega antes del emoji:
+       <img class="act-img" src="act.jpg" alt="">  400x200px */
+    .act-img {
+      width: 100%; height: 110px;
+      object-fit: cover; border-radius: 8px; margin-bottom: 10px;
+    }
+
+    .act-icono { font-size: 36px; margin-bottom: 10px; }
+    .act-nombre { font-weight: 900; font-size: 15px; margin-bottom: 8px; }
+
+    .lugar-verde {
+      display: inline-block;
+      background-color: rgba(0,200,100,0.12); color: #00e87a;
+      border: 1px solid rgba(0,200,100,0.3);
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 50px;
+    }
+
+    .lugar-amarillo {
+      display: inline-block;
+      background-color: rgba(255,214,0,0.12); color: #ffd600;
+      border: 1px solid rgba(255,214,0,0.3);
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 50px;
+    }
+
+    /* ===== ESPACIOS ===== */
+    #espacios { background-color: rgba(255,255,255,0.02); }
+
+    .espacio-box {
+      display: inline-block; width: 44%;
+      margin: 1% 2%; border-radius: 18px;
+      padding: 30px; vertical-align: top;
+    }
+
+    .espacio-verde   { background-color: rgba(0,150,70,0.1);   border: 1px solid rgba(0,200,100,0.3); }
+    .espacio-amarillo{ background-color: rgba(200,150,0,0.08); border: 1px solid rgba(255,214,0,0.3); }
+    .espacio-encabezado { margin-bottom: 16px; }
+
+    .punto { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: middle; margin-right: 10px; }
+    .punto-verde    { background-color: #00e87a; }
+    .punto-amarillo { background-color: #ffd600; }
+
+    .espacio-nombre { font-family: 'Bangers', cursive; font-size: 28px; letter-spacing: 2px; display: inline; vertical-align: middle; }
+
+    .espacio-img-placeholder {
+      width: 100%; height: 100px;
+      border-radius: 10px; text-align: center;
+      font-size: 40px; padding-top: 28px; margin-bottom: 16px;
+    }
+
+    .espacio-lista { list-style: none; padding: 0; }
+
+    .espacio-lista li {
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(240,234,255,0.8); font-size: 14px;
+    }
+
+    .espacio-lista li::before { content: '▸ '; color: #e91e8c; }
+
+    /* ===== CRONOGRAMA ===== */
+    #cronograma { background-color: #120228; }
+
+    .tab-botones { margin-bottom: 30px; }
+
+    .tab-btn {
+      display: inline-block; padding: 10px 24px; border-radius: 50px;
+      border: 2px solid rgba(233,30,140,0.3);
+      background-color: transparent; color: #f0eaff;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px;
+      cursor: pointer; margin-right: 8px;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .tab-btn.activo { background-color: #e91e8c; border-color: #e91e8c; }
+    .tab-btn:hover  { border-color: #e91e8c; }
+
+    .dia { display: none; }
+    .dia.activo { display: block; }
+
+    .cronograma-tabla { width: 100%; border-collapse: collapse; }
+
+    .cronograma-tabla tr {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: background-color 0.2s;
+    }
+
+    .cronograma-tabla tr:hover { background-color: rgba(233,30,140,0.06); }
+
+    .cronograma-tabla td { padding: 14px 16px; font-size: 14px; vertical-align: middle; }
+    .td-hora  { color: #00e5ff; font-weight: 700; width: 100px; font-size: 13px; letter-spacing: 1px; }
+    .td-actividad { font-weight: 900; font-size: 15px; }
+    .td-lugar { color: rgba(240,234,255,0.5); font-size: 13px; text-align: right; }
+
+    /* ===== UBICACIÓN ===== */
+    #ubicacion { background-color: rgba(255,255,255,0.02); }
+
+    .ubic-chips { margin-bottom: 24px; }
+
+    .ubic-chip {
+      display: inline-block;
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid rgba(233,30,140,0.3);
+      padding: 10px 18px; border-radius: 12px;
+      font-weight: 700; font-size: 14px; margin-right: 10px; margin-bottom: 10px;
+    }
+
+    .mapa-wrapper { border-radius: 18px; overflow: hidden; border: 1px solid rgba(233,30,140,0.3); }
+    .mapa-wrapper iframe { width: 100%; height: 400px; border: none; display: block; }
+
+    /* ===== PLANES DE BOLETOS ===== */
+    #registro { background-color: #120228; text-align: center; }
+
+    .plan-card {
+      display: inline-block; width: 28%; margin: 10px 1.5%;
+      border-radius: 20px; padding: 30px 20px;
+      vertical-align: top;
+      border: 1px solid rgba(233,30,140,0.3);
+      background-color: rgba(255,255,255,0.04);
+      text-align: center;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      cursor: pointer; position: relative;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-8px);
+      border-color: #e91e8c;
+      box-shadow: 0 12px 40px rgba(233,30,140,0.25);
+    }
+
+    .plan-card.destacado {
+      border-color: #ffd600;
+      background-image: linear-gradient(160deg, rgba(255,214,0,0.08), rgba(233,30,140,0.08));
+    }
+
+    .plan-estrella {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background-color: #ffd600; color: #120228;
+      font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 50px;
+    }
+
+    .plan-icono  { font-size: 48px; margin-bottom: 10px; }
+    .plan-nombre { font-family: 'Bangers', cursive; font-size: 26px; letter-spacing: 2px; color: #f0eaff; margin-bottom: 6px; }
+    .plan-precio { font-family: 'Bangers', cursive; font-size: 46px; color: #ffd600; letter-spacing: 1px; margin-bottom: 4px; }
+    .plan-precio small { font-size: 18px; color: rgba(240,234,255,0.45); }
+
+    .plan-desc {
+      color: rgba(240,234,255,0.6); font-size: 13px;
+      line-height: 1.6; margin-bottom: 16px; min-height: 50px;
+    }
+
+    .plan-lista { list-style: none; text-align: left; margin-bottom: 20px; }
+
+    .plan-lista li {
+      font-size: 13px; padding: 5px 0;
+      color: rgba(240,234,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .plan-lista li::before { content: '✓ '; color: #00e87a; font-weight: 900; }
+
+    .btn-plan {
+      display: inline-block; background-color: #e91e8c; color: #fff;
+      font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 14px;
+      padding: 10px 24px; border-radius: 50px; border: none;
+      cursor: pointer; width: 100%; transition: background-color 0.2s;
+    }
+
+    .btn-plan:hover { background-color: #c0156f; }
+
+    .btn-plan-oro { background-color: #ffd600; color: #120228; }
+    .btn-plan-oro:hover { background-color: #e6c200; }
+
+    .btn-plan-vip { background-color: #7c3aed; }
+    .btn-plan-vip:hover { background-color: #6027c4; }
+
+    /* ===== MODAL DE PAGO QR ===== */
+    .modal-overlay {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.85);
+      z-index: 300; text-align: center;
+      padding: 40px 20px; overflow-y: auto;
+    }
+
+    .modal-overlay.abierto { display: block; }
+
+    .modal-caja {
+      display: inline-block; background-color: #1a0533;
+      border: 2px solid #e91e8c; border-radius: 24px;
+      padding: 40px 36px; max-width: 460px; width: 100%;
+      animation: entrada-modal 0.35s ease;
+      text-align: center; position: relative;
+    }
+
+    .modal-cerrar {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 22px; cursor: pointer;
+      color: rgba(240,234,255,0.5);
+      background: none; border: none; font-family: 'Nunito', sans-serif;
+    }
+
+    .modal-cerrar:hover { color: #e91e8c; }
+
+    .modal-titulo { font-family: 'Bangers', cursive; font-size: 32px; letter-spacing: 2px; color: #f0eaff; margin-bottom: 4px; }
+    .modal-precio { font-family: 'Bangers', cursive; font-size: 48px; color: #ffd600; margin-bottom: 16px; }
+
+    .qr-pago-contenedor {
+      background-color: #ffffff; border-radius: 16px;
+      padding: 16px; display: inline-block; margin: 10px 0 20px 0;
+    }
+
+
+    .qr-placeholder-pago p      { font-size: 13px; font-weight: 700; margin-top: 8px; }
+    .qr-placeholder-pago p.hint { font-size: 10px; color: #888; margin-top: 4px; }
+
+    .modal-instruccion {
+      font-size: 13px; color: rgba(240,234,255,0.6);
+      line-height: 1.7; margin-bottom: 16px;
+    }
+
+    .metodo-tabs { margin-bottom: 14px; }
+
+    .metodo-tab {
+      display: inline-block; padding: 7px 16px; border-radius: 50px;
+      border: 1px solid rgba(233,30,140,0.3); background-color: transparent;
+      color: #f0eaff; font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 13px; cursor: pointer; margin: 3px;
+    }
+
+    .metodo-tab.activo { background-color: #e91e8c; border-color: #e91e8c; }
+
+    .metodo-panel { display: none; }
+    .metodo-panel.activo { display: block; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: rgba(0,0,0,0.5);
+      border-top: 1px solid rgba(233,30,140,0.3);
+      padding: 50px 40px 90px 40px;
+      text-align: center;
+    }
+
+    .footer-logo { font-family: 'Bangers', cursive; font-size: 32px; letter-spacing: 4px; color: #ffd600; }
+    .footer-logo span { color: #e91e8c; }
+    .footer-tagline { color: rgba(240,234,255,0.4); font-size: 13px; margin: 6px 0 24px 0; }
+
+    .redes a {
+      display: inline-block; width: 46px; height: 46px; border-radius: 50%;
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid rgba(233,30,140,0.3);
+      font-size: 20px; line-height: 46px; text-align: center; margin: 0 5px;
+      text-decoration: none;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .redes a:hover { border-color: #e91e8c; background-color: rgba(233,30,140,0.15); }
+
+    /* QR REDES */
+    .qr-redes-seccion {
+      margin: 30px auto; display: inline-block;
+      background-color: rgba(255,255,255,0.04);
+      border: 1px solid rgba(233,30,140,0.3);
+      border-radius: 20px; padding: 24px 36px;
+    }
+
+    .qr-redes-titulo {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: #e91e8c; margin-bottom: 14px;
+    }
+
+    .qr-redes-contenedor {
+      background-color: #ffffff; border-radius: 14px;
+      padding: 14px; display: inline-block;
+    }
+
+    .qr-placeholder-redes {
+      width: 150px; height: 150px; background-color: #f5f5f5;
+      border-radius: 8px; display: inline-block;
+      text-align: center; padding-top: 28px; color: #120228; font-size: 40px;
+    }
+
+    .qr-placeholder-redes p { font-size: 11px; font-weight: 700; color: #444; margin-top: 8px; }
+
+    .footer-info {
+      color: rgba(240,234,255,0.35); font-size: 13px;
+      margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;
+    }
+
+    .footer-info a { color: #ff6ec7; }
+
+  </style>
+</head>
+<body>
+
+  <div class="music-bar">
+    <span class="music-label">🎵 ANIME WEEKEND 2026</span>
+    <audio controls loop>
+      <source src="musica/Black Rover OP.3. Black Clover. Subtitulado al Español..mp3" type="audio/mpeg">
+      Tu navegador no soporta audio HTML5.
+    </audio>
+  </div>
+
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <h1>ANIME<span>FEST</span> 2026</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#galeria">Galería</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#cronograma">Cronograma</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#registro">Entradas</a>
+    </nav>
+  </header>
+
+
+  <!-- ============ HERO ============ -->
+  <section id="inicio">
+
+    <div class="hero-img-fondo">
+
+        <img src="imagenes/fondo de pagina.jpg" alt="fondo">
+    </div>
+
+    <div class="hero-contenido">
+      <div class="badge">✦ La Paz, Bolivia · 2026 ✦</div>
+      <h2>
+        <span>ANIME</span>
+        <span class="amarillo">WEEKEND</span>
+        <span class="subtitulo">Chuquiago 2026</span>
+      </h2>
+      <div class="hero-datos">
+        <span>📅 18 y 19 de Abril</span>
+        <span>🕙 10:00 – 21:00</span>
+        <span>📍 C.C. Chuquiago Marka</span>
+      </div>
+      <br>
+      <a href="#registro" class="btn-principal">🎫 Compra tu entrada</a>
+      <a href="#actividades" class="btn-secundario">Ver actividades</a>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+
+  <!-- ============ SOBRE EL EVENTO ============ -->
+  <section id="sobre">
+    <div class="sobre-izquierda">
+      <div class="sobre-imagen">
+        <!--
+          IMAGEN "SOBRE EL EVENTO":
+        -->
+        <img src="imagenes/Gemini_Generated_Image_8t5dyr8t5dyr8t5d.png" alt="Sobre el evento">
+      </div>
+    </div>
+    <div class="sobre-derecha">
+      <p class="etiqueta-seccion">¿Qué es?</p>
+      <h2 class="titulo-seccion">El mayor evento <span>otaku</span> de Bolivia</h2>
+      <p>Anime Weekend Chuquiago 2026 es la celebración más esperada de la cultura anime, manga y cosplay en Bolivia. Dos días repletos de emoción, arte y comunidad en el corazón de La Paz.</p>
+      <p>Diseñado para fans de todas las edades: desde los que crecieron con los clásicos hasta los que descubren el anime hoy.</p>
+      <div>
+        <span class="tag">🎌 Cultura Anime</span>
+        <span class="tag">👘 Cosplay</span>
+        <span class="tag">🎮 Gaming</span>
+        <span class="tag">🛍️ Merch</span>
+        <span class="tag">🎵 Música</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+
+  <!-- ============ GALERÍA ============ -->
+  <section id="galeria">
+    <p class="etiqueta-seccion">📸 Galería</p>
+    <h2 class="titulo-seccion">Momentos del <span>evento</span></h2>
+    <p class="subtexto">Una muestra de lo que te espera. Reemplaza los cuadros de color con tus fotos reales.</p>
+
+
+
+    <div class="galeria-item">
+      <div class="placeholder g1"><img src="imagenes/cosplay.jpg" alt="Cosplay"><p>Cosplay</p></div>
+    </div>
+
+    <div class="galeria-item">
+      <div class="placeholder g2"><img src="imagenes/juego.jpg" alt="Zona Gamer"><p>Zona Gamer🎮</p></div>
+    </div>
+
+    <div class="galeria-item">
+      <div class="placeholder g3"><img src="imagenes/karaoke.jpg" alt="Karaoke"><p>Karaoke🎤</p></div>
+    </div>
+
+    <div class="galeria-item">
+      <div class="placeholder g4"><img src="imagenes/proyeccion anime.webp" alt="Proyección"><p>Proyección🎬</p></div>
+    </div>
+
+    <div class="galeria-item">
+      <div class="placeholder g5"><img src="imagenes/merch.webp" alt="Merchandising"><p>Merch🛍️</p></div>
+    </div>
+
+    <div class="galeria-item">
+      <div class="placeholder g6"><img src="imagenes/invitados.jpg" alt="Invitados"><p>Invitados⭐</p></div>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+
+  <!-- ============ ACTIVIDADES ============ -->
+  <section id="actividades">
+    <p class="etiqueta-seccion">🌟 Actividades</p>
+    <h2 class="titulo-seccion">¿Qué vas a <span>vivir</span>?</h2>
+    <p class="subtexto">¡disfruta porque creas decenas de experiencias.</p>
+
+    <table class="act-tabla">
+      <tr>
+        <td onclick="animarTarjeta(this, 'latido')">
+          <img class="act-img" src="imagenes/concurso de cosplay.jpg" alt="Cosplay">
+          <div class="act-nombre">Concurso Cosplay🎭</div>
+          <span class="lugar-amarillo">Edificio Amarillo</span>
+        </td>
+        <td onclick="animarTarjeta(this, 'saltar')">
+          <img class="act-img" src="imagenes/zona gamer.jpg" alt="Gamer">
+          <div class="act-nombre">Zona Gamer🎮</div>
+          <span class="lugar-amarillo">Edificio Amarillo</span>
+        </td>
+        <td onclick="animarTarjeta(this, 'girar')">
+          <img class="act-img" src="imagenes/karaoke anime.jpg" alt="Karaoke">
+          <div class="act-nombre">Karaoke Anime</div>
+          <span class="lugar-amarillo">Edificio Amarillo</span>
+        </td>
+        <td onclick="animarTarjeta(this, 'brillar')">
+          <img class="act-img" src="imagenes/proyeccion de openings.jpg" alt="Proyección">
+          <div class="act-nombre">Proyección de Openings</div>
+          <span class="lugar-verde">Salón Verde</span>
+        </td>
+      </tr>
+      <tr>
+        <td onclick="animarTarjeta(this, 'latido')">
+          <img class="act-img" src="imagenes/stands de merchadising.jpg" alt="Merch">
+          <div class="act-nombre">Stands de Merchandising🛍️</div>
+          <span class="lugar-amarillo">Edificio Amarillo</span>
+        </td>
+        <td onclick="animarTarjeta(this, 'brillar')">
+          <img class="act-img" src="imagenes/invitados especiales.jpg" alt="Invitados">
+          <div class="act-nombre">Invitados Especiales⭐</div>
+          <span class="lugar-verde">Salón Verde</span>
+        </td>
+        <td onclick="animarTarjeta(this, 'girar')">
+          <img class="act-img" src="imagenes/stands de ilustracion.jpg" alt="Ilustración">
+          <div class="act-nombre">Stands de Ilustración🎨</div>
+          <span class="lugar-amarillo">Edificio Amarillo</span>
+        </td>
+        <td onclick="animarTarjeta(this, 'saltar')">
+          <img class="act-img" src="imagenes/talleres tematicos.jpg" alt="Talleres">
+          <div class="act-nombre">Talleres Temáticos📚</div>
+          <span class="lugar-amarillo">Edificio Amarillo</span>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <hr class="divisor">
+
+
+  <!-- ============ ESPACIOS ============ -->
+  <section id="espacios">
+    <p class="etiqueta-seccion">🏛️ Espacios</p>
+    <h2 class="titulo-seccion">Distribución del <span>recinto</span></h2>
+    <p class="subtexto">Dos zonas diferenciadas dentro del Centro de Convenciones.</p>
+
+    <div class="espacio-box espacio-verde">
+      <!--
+        IMAGEN SALÓN VERDE:
+      -->
+      <div class="espacio-img-placeholder" style="background-image: linear-gradient(135deg, rgba(0,150,70,0.3), rgba(0,200,100,0.1));">🟢</div>
+      <div class="espacio-encabezado">
+        <span class="punto punto-verde"></span>
+        <span class="espacio-nombre">Salón Verde</span>
+      </div>
+      <ul class="espacio-lista">
+        <li>Proyección de Openings</li>
+        <li>Presentación de Invitados</li>
+      </ul>
+    </div>
+
+    <div class="espacio-box espacio-amarillo">
+      <!--
+        IMAGEN EDIFICIO AMARILLO:
+      -->
+      <div class="espacio-img-placeholder" style="background-image: linear-gradient(135deg, rgba(200,150,0,0.3), rgba(255,214,0,0.1));">🟡</div>
+      <div class="espacio-encabezado">
+        <span class="punto punto-amarillo"></span>
+        <span class="espacio-nombre">Edificio Amarillo</span>
+      </div>
+      <ul class="espacio-lista">
+        <li>Concurso Cosplay</li>
+        <li>Zona Gamer</li>
+        <li>Stands de Ilustración</li>
+        <li>Merchandising</li>
+        <li>Talleres Temáticos</li>
+        <li>Karaoke Anime</li>
+        <li>Concursos y Dinámicas</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+
+  <!-- ============ CRONOGRAMA ============ -->
+  <section id="cronograma">
+    <p class="etiqueta-seccion">🕐 Cronograma</p>
+    <h2 class="titulo-seccion">Programación del <span>evento</span></h2>
+    <p class="subtexto">Planifica tu visita. Dos días con mucho que explorar.</p>
+
+    <div class="tab-botones">
+      <button class="tab-btn activo" onclick="cambiarDia('sab', this)">Sábado 18 Abril</button>
+      <button class="tab-btn" onclick="cambiarDia('dom', this)">Domingo 19 Abril</button>
+    </div>
+
+    <div id="sab" class="dia activo">
+      <table class="cronograma-tabla">
+        <tr><td class="td-hora">10:00</td><td class="td-actividad">Apertura de puertas y bienvenida</td><td class="td-lugar">📍 Acceso principal</td></tr>
+        <tr><td class="td-hora">11:00</td><td class="td-actividad">Proyección de Openings Clásicos</td><td class="td-lugar">📍 Salón Verde</td></tr>
+        <tr><td class="td-hora">12:00</td><td class="td-actividad">Concurso Cosplay – Inscripciones</td><td class="td-lugar">📍 Edificio Amarillo</td></tr>
+        <tr><td class="td-hora">14:00</td><td class="td-actividad">Presentación de Invitados Especiales</td><td class="td-lugar">📍 Salón Verde</td></tr>
+        <tr><td class="td-hora">16:00</td><td class="td-actividad">Zona Gamer – Torneos Abiertos</td><td class="td-lugar">📍 Edificio Amarillo</td></tr>
+        <tr><td class="td-hora">18:00</td><td class="td-actividad">Karaoke Anime en vivo</td><td class="td-lugar">📍 Edificio Amarillo</td></tr>
+        <tr><td class="td-hora">20:00</td><td class="td-actividad">Cierre del día · Sorteos y premiaciones</td><td class="td-lugar">📍 Salón Verde</td></tr>
+      </table>
+    </div>
+
+    <div id="dom" class="dia">
+      <table class="cronograma-tabla">
+        <tr><td class="td-hora">10:00</td><td class="td-actividad">Apertura de puertas</td><td class="td-lugar">📍 Acceso principal</td></tr>
+        <tr><td class="td-hora">11:00</td><td class="td-actividad">Talleres Temáticos – Ilustración y Manga</td><td class="td-lugar">📍 Edificio Amarillo</td></tr>
+        <tr><td class="td-hora">13:00</td><td class="td-actividad">Gran Final Concurso Cosplay</td><td class="td-lugar">📍 Edificio Amarillo</td></tr>
+        <tr><td class="td-hora">15:00</td><td class="td-actividad">Proyección de Openings 2000s</td><td class="td-lugar">📍 Salón Verde</td></tr>
+        <tr><td class="td-hora">17:00</td><td class="td-actividad">Concursos y Dinámicas de trivia</td><td class="td-lugar">📍 Edificio Amarillo</td></tr>
+        <tr><td class="td-hora">19:00</td><td class="td-actividad">Ceremonia de premiación general</td><td class="td-lugar">📍 Salón Verde</td></tr>
+        <tr><td class="td-hora">21:00</td><td class="td-actividad">🎌 Cierre oficial del evento</td><td class="td-lugar">📍 Acceso principal</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+
+  <!-- ============ UBICACIÓN ============ -->
+  <section id="ubicacion">
+    <p class="etiqueta-seccion">📍 Ubicación</p>
+    <h2 class="titulo-seccion">¿Dónde nos <span>encontramos</span>?</h2>
+    <div class="ubic-chips">
+      <span class="ubic-chip">🏛️ Centro de Convenciones Chuquiago Marka</span>
+      <span class="ubic-chip">📍 La Paz, Bolivia</span>
+    </div>
+    <div class="mapa-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.9!2d-68.119!3d-16.504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f214f5b726b89%3A0xd4aeff714a3cfe47!2sCentro%20de%20Convenciones%20Chuquiago%20Marka!5e0!3m2!1ses!2sbo!4v1712345678901"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+
+  <!-- ============ PLANES DE BOLETOS ============ -->
+  <section id="registro">
+    <p class="etiqueta-seccion">🎫 Entradas</p>
+    <h2 class="titulo-seccion">Elige tu <span>plan</span></h2>
+    <p class="subtexto" style="margin: 0 auto 40px auto; text-align: center;">
+      Plazas limitadas. Selecciona el plan ideal y paga fácilmente con QR.
+    </p>
+
+    <!-- FILA 1: Individual · Pareja · Familia -->
+    <div>
+
+      <div class="plan-card" onclick="abrirModal('Individual', 'Bs. 60', '1 persona · 1 día')">
+        <div class="plan-icono">🧍</div>
+        <div class="plan-nombre">Individual</div>
+        <div class="plan-precio">Bs. 60 <small>/ día</small></div>
+        <div class="plan-desc">Para un solo otaku. Acceso completo por un día.</div>
+        <ul class="plan-lista">
+          <li>1 persona</li>
+          <li>Todas las actividades</li>
+          <li>Zona gamer incluida</li>
+          <li>1 voto cosplay</li>
+        </ul>
+        <button class="btn-plan">Comprar →</button>
+      </div>
+
+      <div class="plan-card destacado" onclick="abrirModal('Pareja', 'Bs. 110', '2 personas · 1 día')">
+        <div class="plan-estrella">⭐ MÁS POPULAR</div>
+        <div class="plan-icono">👫</div>
+        <div class="plan-nombre">Pareja</div>
+        <div class="plan-precio">Bs. 110 <small>/ día</small></div>
+        <div class="plan-desc">Para dos personas. Ahorra Bs. 10 vs compra individual.</div>
+        <ul class="plan-lista">
+          <li>2 personas</li>
+          <li>Todas las actividades</li>
+          <li>Zona gamer incluida</li>
+          <li>2 votos cosplay</li>
+        </ul>
+        <button class="btn-plan btn-plan-oro">Comprar →</button>
+      </div>
+
+      <div class="plan-card" onclick="abrirModal('Familia', 'Bs. 200', '2 adultos + 2 niños · 1 día')">
+        <div class="plan-icono">👨‍👩‍👧‍👦</div>
+        <div class="plan-nombre">Familia</div>
+        <div class="plan-precio">Bs. 200 <small>/ día</small></div>
+        <div class="plan-desc">2 adultos + hasta 2 niños (hasta 12 años).</div>
+        <ul class="plan-lista">
+          <li>2 adultos + 2 niños</li>
+          <li>Todas las actividades</li>
+          <li>Zona gamer incluida</li>
+          <li>4 votos cosplay</li>
+        </ul>
+        <button class="btn-plan">Comprar →</button>
+      </div>
+
+    </div>
+
+    <br>
+
+    <!-- FILA 2: Pase 2 Días · Grupo · VIP -->
+    <div>
+
+      <div class="plan-card" onclick="abrirModal('Pase 2 Días', 'Bs. 100', '1 persona · Sábado y Domingo')">
+        <div class="plan-icono">📅</div>
+        <div class="plan-nombre">Pase 2 Días</div>
+        <div class="plan-precio">Bs. 100 <small>/ todo</small></div>
+        <div class="plan-desc">Entrada para ambos días del evento. Mejor valor si vienes los dos días.</div>
+        <ul class="plan-lista">
+          <li>1 persona · Sáb y Dom</li>
+          <li>Acceso completo ambos días</li>
+          <li>Descuento en merch</li>
+          <li>2 votos cosplay</li>
+        </ul>
+        <button class="btn-plan">Comprar →</button>
+      </div>
+
+      <div class="plan-card" onclick="abrirModal('Grupo (5 personas)', 'Bs. 270', '5 personas · 1 día')">
+        <div class="plan-icono">👥</div>
+        <div class="plan-nombre">Grupo</div>
+        <div class="plan-precio">Bs. 270 <small>/ día</small></div>
+        <div class="plan-desc">Para grupos de 5 personas. ¡Ven con tu crew otaku!</div>
+        <ul class="plan-lista">
+          <li>5 personas</li>
+          <li>Todas las actividades</li>
+          <li>Zona gamer incluida</li>
+          <li>5 votos cosplay</li>
+        </ul>
+        <button class="btn-plan">Comprar →</button>
+      </div>
+
+      <div class="plan-card" onclick="abrirModal('VIP', 'Bs. 150', '1 persona · 2 días + beneficios exclusivos')">
+        <div class="plan-icono">👑</div>
+        <div class="plan-nombre">VIP</div>
+        <div class="plan-precio">Bs. 150 <small>/ todo</small></div>
+        <div class="plan-desc">Experiencia premium. Acceso anticipado y zona exclusiva los dos días.</div>
+        <ul class="plan-lista">
+          <li>1 persona · Sáb y Dom</li>
+          <li>Ingreso 30 min antes</li>
+          <li>Zona VIP exclusiva</li>
+          <li>Meet &amp; Greet con invitados</li>
+          <li>Merch oficial incluido</li>
+        </ul>
+        <button class="btn-plan btn-plan-vip">Comprar →</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-logo">ANIME<span>FEST</span> 2026</div>
+    <p class="footer-tagline">Anime Weekend Chuquiago · La Paz, Bolivia</p>
+
+    <div class="redes">
+      <a href="https://www.instagram.com/" title="Instagram">📸</a>
+      <a href="https://www.facebook.com/" title="Facebook">📘</a>
+      <a href="https://www.tiktok.com/" title="TikTok">🎵</a>
+      <a href="https://wa.me/" title="WhatsApp">💬</a>
+      <a href="https://www.youtube.com/" title="YouTube">▶️</a>
+    </div>
+
+
+    <div class="qr-redes-seccion">
+      <p class="qr-redes-titulo">📲 Síguenos · Escanea el QR</p>
+      <div class="qr-redes-contenedor">
+        <img src="imagenes/QR.png" alt="QR Redes Sociales" style="width:150px;height:150px;">
+          📲
+          <p>Tu QR aquí</p>
+        </div>
+      </div>
+      <p style="font-size:12px; color: rgba(240,234,255,0.4); margin-top:12px;">
+        Apunta tu cámara para ir a nuestras redes
+      </p>
+    </div>
+
+    <div class="footer-info">
+      <p>📧 contacto@animefestchuquiago.bo &nbsp;|&nbsp; 📞 +591 2 XXX-XXXX</p>
+      <p style="margin-top:8px;">
+        © 2026 Anime Weekend Chuquiago · Organización Juvenil Otaku Bolivia ·
+        <a href="#">Política de privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
